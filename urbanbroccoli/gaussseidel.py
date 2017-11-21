@@ -45,6 +45,24 @@ def gaussseidel_2d(rho, hx, hy, epsilon, maxiter, maxerr):
     return phi
 
 def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
+    """Solve for potential using 3d gaussseidel methods given a charge distribution.
+    
+    Parameters:
+        rho (ndarray) 
+            3d numpy array representing a charge distribution.
+        *(hx, hy, hz) *(float, float, float) (tuple)
+            Grid spacing in x, y, z.
+        epsilon (float)
+            Permittivity Constant.
+        maxiter (int)
+            If the error does not converge, stop iterating at this iteration.
+        maxerr  (float)
+            If error drops below this value, stop iterating.
+    
+    Returns:
+        phi (ndarray)
+            Solution after max iterations or when reached accuracy.
+    """
     if rho.ndim != 3:
         raise ValueError("rho must be of shape=(nx, ny, nz)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
