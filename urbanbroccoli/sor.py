@@ -31,6 +31,28 @@ def sor_1d(rho, hx, epsilon, maxiter, maxerr, w):
     return phi
 
 def sor_2d(rho, hx, hy, epsilon, maxiter, maxerr, w):
+    """Performs a sucsesive over relaxation for the poisson equation of a two dimensional discretized charge distribution:
+          Parameters:
+            rho (ndarray)
+                insert a two dimensional numpy array representing a discretized charge distribution
+            hx (float)
+                grid spacing in x direction
+            hy (flaot)
+                grid spacing in y direction
+            epsilon (float)
+                permeativity constant
+            maxiter (integer)
+                maximum number of iterations
+            maxerr (float)
+                minimal update-stepsize
+            w (float)
+                mixing constant determinig the ammount of new and old values used for the updated iterartion step
+          
+          Returns:
+            phi (ndarray) 
+                returns the resulting potential phi as a two dimensional numpy array
+          
+          """
     if rho.ndim != 2:
         raise ValueError("rho must be of shape=(nx, ny)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
