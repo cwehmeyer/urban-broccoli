@@ -54,7 +54,7 @@ def jacobi_2d(rho, hx, hy, epsilon, maxiter, maxerr):
     return phi
 
 def jacobi_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
-        '''Solve 3D discrete Poisson equation using Jacobi method
+    '''Solve 3D discrete Poisson equation using Jacobi method
     
     arguments:
         rho (array-like of float): charge density
