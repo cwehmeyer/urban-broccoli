@@ -45,7 +45,7 @@ def gaussseidel_2d(rho, hx, hy, epsilon, maxiter, maxerr):
     return phi
 
 def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
-    """Solve for potential using 3d gaussseidel methods.
+    """Solve for potential using 3d gaussseidel methods given a charge distribution.
     
     Parameters:
         rho (ndarray) 
