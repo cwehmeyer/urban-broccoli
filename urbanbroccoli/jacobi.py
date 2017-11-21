@@ -54,6 +54,15 @@ def jacobi_2d(rho, hx, hy, epsilon, maxiter, maxerr):
     return phi
 
 def jacobi_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
+        '''Solve 3D discrete Poisson equation using Jacobi method
+    
+    arguments:
+        rho (array-like of float): charge density
+        hx, hy, hz (float): grid spacing
+        epsilion (float): vacuum permittivity
+        maxiter (integer): maximum number of iterations
+        maxerr (float): convergence criteria
+    '''
     if rho.ndim != 3:
         raise ValueError("rho must be of shape=(nx, ny, nz)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
