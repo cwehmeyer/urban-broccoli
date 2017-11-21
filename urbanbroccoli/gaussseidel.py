@@ -45,6 +45,18 @@ def gaussseidel_2d(rho, hx, hy, epsilon, maxiter, maxerr):
     return phi
 
 def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
+    """Solve for phi using gaussseidel methods in 3d.
+    
+    Arguments:
+    rho - Guess.
+    hx, hy, hz - Spacing in x, y, z.
+    epsilon - Denominator factor in mr.
+    maxiter - If the error never converges, stop iterating at this iteration.
+    maxerr - If error drops below this value, stop iterating.
+    
+    Returns:
+    phi - Solution after max iterations or when reached accuracy.
+    """
     if rho.ndim != 3:
         raise ValueError("rho must be of shape=(nx, ny, nz)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
