@@ -1,6 +1,12 @@
 import numpy as np
 
 def gaussseidel_1d(rho, hx, epsilon, maxiter, maxerr):
+    """
+    A function solving Possion equations in 1D using Gauss-Seidel method: 
+    
+    --Arguments 
+    
+    """
     if rho.ndim != 1:
         raise ValueError("rho must be of shape=(n,)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
