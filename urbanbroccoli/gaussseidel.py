@@ -74,12 +74,35 @@ def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
     return phi
 
 def gaussseidel(rho, h, epsilon=1.0, maxiter=10000, maxerr=1e-15):
+    '''
+    Gauss-Seidel relaxation method to solve th
+    =====
+    
+    What does it do?
+    
+    Arguments:
+        rho: the density function
+        h: boh
+        epsilon: boh
+        maxiter: the maximum number of iterations
+        maxerr: the maximum accepted error
+    '''
+    
+    #Checks the dimension of rho, and calls a function to calculate it accordingly to its dimension
     if rho.ndim == 1:
+        
+        #rho's dimension is 1
         return gaussseidel_1d(rho, *h, epsilon, maxiter, maxerr)
     elif rho.ndim == 2:
+        
+        #rho's dimension is 2
         return gaussseidel_2d(rho, *h, epsilon, maxiter, maxerr)
     elif rho.ndim == 3:
+        
+        #rho's dimension is 3
         return gaussseidel_3d(rho, *h, epsilon, maxiter, maxerr)
+    
+    #a rho with a non-accettable dimension was passed
     else:
         raise ValueError(
             'gaussseidel expects rho with 1, 2 or 3 dimensions.')
