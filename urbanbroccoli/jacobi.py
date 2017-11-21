@@ -1,6 +1,15 @@
 import numpy as np
 
 def jacobi_1d(rho, hx, epsilon, maxiter, maxerr):
+    '''solve poissons equation with a 1d jacobi
+    
+    arguments:
+        rho (array like of float): charge density
+        hx (float): grid spacing
+        epsilion (float): vacuum permeativity
+        maxiter (integer): maximum number of iterations
+        maxerr (float): convergence criteria
+    '''
     if rho.ndim != 1:
         raise ValueError("rho must be of shape=(n,)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
