@@ -19,7 +19,7 @@ A Poisson solver written in Python for educational purposes.
 setup(
     cmdclass={'test': PyTest},
     name='urbanbroccoli',
-    version='0.0.0',
+    version='0.1.0',
     author='Christoph Wehmeyer',
     author_email='christoph.wehmeyer@fu-berlin.de',
     url='https://github.com/cwehmeyer/urban-broccoli',
