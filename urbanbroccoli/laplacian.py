@@ -26,9 +26,9 @@ def create_laplacian_3d(nx, ny, nz, hx, hy, hz):
     '''Generate a 3d laplacian matrix with respect to various grid sizes.
     
     We generate a laplacian matrix for three dimensions by creating a 6d tensor 
-    and filling it according to the laplacian ???. 
-    The values are multiplied with a respective prefactor that is derived from 
-    the grid size.
+    and filling it according to the discretized laplacian operator. 
+    The values are multiplied by a respective prefactor that is derived from 
+    the grid spacing.
     In the end the tensor is reshaped into a 2d matrix that is returned. 
     
     Arguments:
