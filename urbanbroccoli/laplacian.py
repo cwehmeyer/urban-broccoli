@@ -23,6 +23,22 @@ def create_laplacian_2d(nx, ny, hx, hy):
     return laplacian.reshape(nx * ny, nx * ny)
 
 def create_laplacian_3d(nx, ny, nz, hx, hy, hz):
+    '''Generate a 3d laplacian matrix with respect to various grid sizes.
+    
+    We generate a laplacian matrix for three dimensions by creating a 6d tensor 
+    and filling it according to the discretized laplacian operator. 
+    The values are multiplied by a respective prefactor that is derived from 
+    the grid spacing.
+    In the end the tensor is reshaped into a 2d matrix that is returned. 
+    
+    Arguments:
+        nx (integer): length of the x dimension
+        ny (integer): length of the y dimension
+        nz (integer): length of the z dimension
+        hx (float): grid size of the x dimension
+        hy (float): grid size of the y dimension
+        hz (float): grid size of the z dimension
+    '''
     laplacian = zeros(shape=(nx, ny, nz, nx, ny, nz), dtype=float64)
     mx = 1.0 / (hx * hx)
     my = 1.0 / (hy * hy)
