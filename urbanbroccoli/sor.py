@@ -36,18 +36,18 @@ def sor_2d(rho, hx, hy, epsilon, maxiter, maxerr, w):
     Performs a sucsessive over-relaxation for the Poisson equation to determine the 
     potential resulting from a two dimensional discretized charge distribution.
         
-        Parameters:
-            rho (ndarray): two dimensional discretized charge distribution
-            hx (float): grid spacing in x direction
-            hy (float): grid spacing in y direction
-            epsilon (float): permeativity constant
-            maxiter (integer): maximum number of iterations
-            maxerr (float): minimal update-stepsize
-            w (float): mixing constant of new and old values in the iterartion step
+    Parameters:
+        rho (ndarray): two dimensional discretized charge distribution
+        hx (float): grid spacing in x direction
+        hy (float): grid spacing in y direction
+        epsilon (float): permeativity constant
+        maxiter (integer): maximum number of iterations
+        maxerr (float): minimal update-stepsize
+        w (float): mixing constant of new and old values in the iterartion step
 
-        Returns:
-            phi (ndarray): resulting potential phi as a two dimensional numpy array
-          """
+    Returns:
+        phi (ndarray): resulting potential phi as a two dimensional numpy array
+    """
     if rho.ndim != 2:
         raise ValueError("rho must be of shape=(nx, ny)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
