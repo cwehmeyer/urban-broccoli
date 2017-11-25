@@ -75,17 +75,21 @@ def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
 
 def gaussseidel(rho, h, epsilon=1.0, maxiter=10000, maxerr=1e-15):
     '''
-    Gauss-Seidel relaxation method to solve th
+    Gauss-Seidel relaxation method to solve a linear system of equation
     =====
     
-    What does it do?
+    This function checks the dimension of the function rho passed and calls the right gaussseidel according to it.
+    If the dimension is not 1, 2 or 3, an exception is raised.
     
     Arguments:
-        rho: the density function
-        h: boh
-        epsilon: boh
-        maxiter: the maximum number of iterations
-        maxerr: the maximum accepted error
+        rho (ndarray): the density function
+        h (ndarray): grid spacing
+        epsilon (float): permittivity constant
+        maxiter (int): the maximum number of iterations
+        maxerr (float): the maximum accepted error, if reached, the iteration stops
+        
+    Returns:
+        the solution given by the gausseilde_Xd function called (where X is the dimension of rho) 
     '''
     
     #Checks the dimension of rho, and calls a function to calculate it accordingly to its dimension
