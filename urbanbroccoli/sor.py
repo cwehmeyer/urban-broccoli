@@ -3,16 +3,16 @@ import numpy as np
 def sor_1d(rho, hx, epsilon, maxiter, maxerr, w):
     """Performs a sucsessive over-relaxation for the Poisson equation of a one dimensional discretized charge distribution:
            
-        Parameters:
-            rho (ndarray): insert a one dimensional numpy array representing a discretized charge distribution 
-            hx (float): grid spacing in x direction  
-            epsilon (float): permittivity constant   
-            maxiter (integer): maximum number of iterations   
-            maxerr (float): minimal update-stepsize   
-            w (float): mixing constant determinig the ammount of new and old values used for the updated iterartion step
+    Parameters:
+        rho (ndarray): insert a one dimensional numpy array representing a discretized charge distribution 
+        hx (float): grid spacing in x direction  
+        epsilon (float): permittivity constant   
+        maxiter (integer): maximum number of iterations   
+        maxerr (float): minimal update-stepsize   
+        w (float): mixing constant determinig the ammount of new and old values used for the updated iterartion step
                   
-        Returns:
-            phi (ndarray): returns the resulting potential phi as a one dimensional numpy array
+    Returns:
+        phi (ndarray): returns the resulting potential phi as a one dimensional numpy array
     """
     if rho.ndim != 1:
         raise ValueError("rho must be of shape=(n,)")
