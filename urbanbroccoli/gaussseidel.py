@@ -6,30 +6,17 @@ def gaussseidel_1d(rho, hx, epsilon, maxiter, maxerr):
     using Gauss-Seidel method: 
     
     Arguments:
-      rho     (ndarray, float):           A 1-dimensional numpy-array shape=(n,)
-                                          Contains charge density values at the
-                                          gridpoints.
-        
-      hx      (float):                    A positive float specifying the grid
-                                          spacing.
-        
-      epsilon (float):                    A positive  float specifying the dielectric
-                                          coefficient.
-        
-      maxiter (int):                      A positive integer limitting the maximum
-                                          number of iterations.
-        
-      maxerr  (float):                    A positive float specyfing the maximum
-                                          tolerance threshold, affecting accuracy 
-                                          of the solution.
+      rho     (ndarray, float):           A 1-dimensional numpy-array (charge density)
+      hx      (float):                    A positive float (grid spacing).      
+      epsilon (float):                    A positive  float (dielectric coefficient).
+      maxiter (int):                      A positive integer (maximum number of iterations).
+      maxerr  (float):                    A positive float (tolerance threshold).
      
      Returns:
       phi (ndarray, float):               A 1-dimensional numpy array shape=(n,)
-                                          Contains potential values at the gridpoints.
-                         
-     
+                                          Contains potential values at the gridpoints.     
      Raises:
-       ValueError:                        If the argument "rho" is not of shape (n,)  
+      ValueError:                         If the argument "rho" is not of shape (n,)  
     
     """
     if rho.ndim != 1:
