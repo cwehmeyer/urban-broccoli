@@ -2,9 +2,36 @@ import numpy as np
 
 def gaussseidel_1d(rho, hx, epsilon, maxiter, maxerr):
     """
-    A function solving Possion equations in 1D using Gauss-Seidel method: 
+    A function solving Possion equations for a 1-dimensional grid
+    using Gauss-Seidel method: 
     
-    --Arguments 
+    --Arguments:
+       -Name      -Type                                -Description
+       
+        rho     (array, float):             A 1-dimensional numpy-array shape=(n,)
+                                            Contains charge density values at the
+                                            gridpoints.
+        
+        hx      (float):                    A positive float specifying the grid
+                                            spacing.
+        
+        epsilon (float):                    A positive  float specifying the dielectric
+                                            coefficient.
+        
+        maxiter (int):                      A positive integer limitting the maximum
+                                            number of iterations.
+        
+        maxerr  (float):                    A positive float specyfing the maximum
+                                            tolerance threshold, affecting accuracy 
+                                            of the solution.
+     
+     --Returns:
+       phi (array, float):                  A 1-dimensional numpy array shape=(n,)
+                                            Contains potential values at the gridpoints.
+                         
+     
+     --Raises:
+       ValueError:                          If the argument "rho" is not of shape (n,)  
     
     """
     if rho.ndim != 1:
