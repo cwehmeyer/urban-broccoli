@@ -70,6 +70,21 @@ def sor_2d(rho, hx, hy, epsilon, maxiter, maxerr, w):
     return phi
 
 def sor_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr, w):
+    """Performs a sucsessive over-relaxation for the Poisson equation of a three dimensional discretized charge distribution:
+           
+    Parameters:
+        rho (ndarray): insert a three dimensional numpy array representing a discretized charge distribution 
+        hx (float): grid spacing in x direction
+        hy (float): grid spacing in y direction
+        hz (float): grid spacing in z direction
+        epsilon (float): permittivity constant   
+        maxiter (integer): maximum number of iterations   
+        maxerr (float): minimal update-stepsize   
+        w (float): mixing constant determinig the ammount of new and old values used for the updated iterartion step
+                  
+    Returns:
+        phi (ndarray): returns the resulting potential phi as a three dimensional numpy array
+    """
     if rho.ndim != 3:
         raise ValueError("rho must be of shape=(nx, ny, nz)")
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
