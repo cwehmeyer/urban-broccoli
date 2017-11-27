@@ -10,22 +10,21 @@ def create_laplacian_1d(nx, hx):
     return laplacian
 
 def create_laplacian_2d(nx, ny, hx, hy):
-    '''Creates Laplacian matrix for 2-D Domain by discretizing the domain by grids of required sizes in X and Y direction.  
+    '''Generates 2d Laplacian matrix with respect to grid spacing.   
        
-       It first creates a 4-dimensional array to show all components of laplace operator at each grid point.  
-       In 4-D array,each inner 2-D array[nx,ny] represents array of all componants of laplacian Operator of a perticular grid point.  
-       Filling it according to Discetized laplace operator taking care of periodic boundary conditions.  
-       And then reshaping it into laplaction matrix .  
-       
-       Input Arguments:
-       nx(integer): number of grid points in X-direction  
-       ny(integer): number of grid points in Y-direction 
-       hx(float): grid-size in X-direction
-       hy(float): grid-size in Y-direction
-       
-       Output:  
-       Laplacian matrix of size(nx * ny, nx * ny)
-       
+    Creates 4d array to show components of laplace operator at each grid point
+    and fills it as per discetized laplace operator taking care of
+    periodic boundary conditions.  
+    In the end reshapes it into 2d laplaction matrix .  
+    
+    Parameters:
+    nx(integer): number of grid points in X-direction
+    ny(integer): number of grid points in Y-direction
+    hx(float): grid-spacing in X-direction
+    hy(float): grid-spacing in Y-direction
+    
+    Returns:
+    Laplacian matrix of size(nx * ny, nx * ny)  
     '''
     laplacian = zeros(shape=(nx, ny, nx, ny), dtype=float64)       
     mx = 1.0 / (hx * hx)
