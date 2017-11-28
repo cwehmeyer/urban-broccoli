@@ -18,13 +18,13 @@ def create_laplacian_2d(nx, ny, hx, hy):
     In the end reshapes it into 2d laplaction matrix .  
     
     Parameters:
-    nx(integer): number of grid points in X-direction
-    ny(integer): number of grid points in Y-direction
-    hx(float): grid-spacing in X-direction
-    hy(float): grid-spacing in Y-direction
+        nx(integer): number of grid points in X-direction
+        ny(integer): number of grid points in Y-direction
+        hx(float): grid-spacing in X-direction
+        hy(float): grid-spacing in Y-direction
     
     Returns:
-    Laplacian matrix of size(nx * ny, nx * ny)  
+        Laplacian matrix of size(nx * ny, nx * ny)  
     '''
     laplacian = zeros(shape=(nx, ny, nx, ny), dtype=float64)       
     mx = 1.0 / (hx * hx)
