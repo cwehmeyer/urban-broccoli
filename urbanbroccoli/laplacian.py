@@ -10,16 +10,32 @@ def create_laplacian_1d(nx, hx):
     return laplacian
 
 def create_laplacian_2d(nx, ny, hx, hy):
-    laplacian = zeros(shape=(nx, ny, nx, ny), dtype=float64)
+    '''Generates 2d Laplacian matrix with respect to grid spacing.   
+       
+    Creates 4d array to show components of laplace operator at each grid point
+    and fills it as per discetized laplace operator taking care of
+    periodic boundary conditions.  
+    In the end reshapes it into 2d laplaction matrix .  
+    
+    Parameters:
+        nx(integer): number of grid points in X-direction
+        ny(integer): number of grid points in Y-direction
+        hx(float): grid-spacing in X-direction
+        hy(float): grid-spacing in Y-direction
+    
+    Returns:
+        Laplacian matrix of size(nx * ny, nx * ny)  
+    '''
+    laplacian = zeros(shape=(nx, ny, nx, ny), dtype=float64)       
     mx = 1.0 / (hx * hx)
     my = 1.0 / (hy * hy)
     for x in range(nx):
         for y in range(ny):
             laplacian[x, y, x, y] = -2.0 * (mx + my)
-            laplacian[x, y, (x + 1) % nx, y] += mx
-            laplacian[x, y, (x - 1) % nx, y] += mx
-            laplacian[x, y, x, (y + 1) % ny] += my
-            laplacian[x, y, x, (y - 1) % ny] += my
+            laplacian[x, y, (x + 1) % nx, y] += mx       # sets laplacian component of neighbour grid point in X-direction
+            laplacian[x, y, (x - 1) % nx, y] += mx       # sets component of neighbour grid point in opposite X-direction
+            laplacian[x, y, x, (y + 1) % ny] += my       # sets component of neighbour grid point in Y-direction
+            laplacian[x, y, x, (y - 1) % ny] += my       # sets component of neighbour grid point in opposite Y-direction
     return laplacian.reshape(nx * ny, nx * ny)
 
 def create_laplacian_3d(nx, ny, nz, hx, hy, hz):
