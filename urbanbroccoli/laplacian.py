@@ -1,14 +1,13 @@
 from numpy import zeros, float64
 
-''' 
-Generates an laplace sparse matrix of an 1D-vector.
+''' Generates an laplace sparse matrix of an 1D-vector.
 
 Arguments:
-nx (integer): length of the vector
-hx (integer): length of the grid in x:x
+    nx (integer): length of the vector
+    hx (integer): length of the grid in x:x
 
 Return:
-laplacian sparse matrix
+    laplacian sparse matrix
 '''
 def create_laplacian_1d(nx, hx):
     laplacian = zeros(shape=(nx, nx), dtype=float64)
@@ -49,15 +48,14 @@ def create_laplacian_3d(nx, ny, nz, hx, hy, hz):
                 laplacian[x, y, z, x, y, (z - 1) % nz] += mz
     return laplacian.reshape(nx * ny * nz, nx * ny * nz)
 
-''' 
-Generates an laplace sparse matrix of an 1D, 2D or 3D input. Delegates the task to the respective function.
+''' Generates an laplace sparse matrix of an 1D, 2D or 3D input. Delegates the task to the respective function.
 
 Arguments:
-n (array): vector with 1-3 Dimensions
-h (array): length of the grid in 1-3 Dimensions
+    n (array): vector with 1-3 Dimensions
+    h (array): length of the grid in 1-3 Dimensions
 
 Return:
-laplacian sparse matrix
+    laplacian sparse matrix
 '''
 def create_laplacian(n, h):
     if len(n) == 1:
