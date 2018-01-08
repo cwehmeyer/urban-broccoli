@@ -37,15 +37,33 @@ def gaussseidel_1d(rho, hx, epsilon, maxiter, maxerr):
             break
     return phi
 
+
 def gaussseidel_2d(rho, hx, hy, epsilon, maxiter, maxerr):
+    """ Gauss-Seidel method for 2d 
+        Parameters:
+            rho:        charge
+            hx, hy:     spacing in x and y direction
+            epsilon:    constant
+            maxiter:    maximal intervall for the iteration
+            maxerr:     limit for the error
+        
+        Creates a matrix for phi by iteration using the given
+        charge and spacings.
+        
+        Returns the potential phi.
+    """
+    
     if rho.ndim != 2:
         raise ValueError("rho must be of shape=(nx, ny)")
+        
     phi = np.zeros(shape=rho.shape, dtype=rho.dtype)
+    
     nx, ny = rho.shape
     fx, fy = 1.0 / (hx * hx), 1.0 / (hy * hy)
     mx = 0.5 * fx / (fx + fy)
     my = 0.5 * fy / (fx + fy)
     mr = 0.5 / (epsilon * (fx + fy))
+    
     for iteration in range(maxiter):
         error = 0.0
         for x in range(nx):
