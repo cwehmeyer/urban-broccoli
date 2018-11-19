@@ -128,12 +128,39 @@ def gaussseidel_3d(rho, hx, hy, hz, epsilon, maxiter, maxerr):
     return phi
 
 def gaussseidel(rho, h, epsilon=1.0, maxiter=10000, maxerr=1e-15):
+    '''
+    Gauss-Seidel relaxation method to solve a linear system of equation
+    =====
+    
+    This function checks the dimension of the function rho passed and calls the right gaussseidel according to it.
+    If the dimension is not 1, 2 or 3, an exception is raised.
+    
+    Arguments:
+        rho (ndarray): the density function
+        h (ndarray): grid spacing
+        epsilon (float): permittivity constant
+        maxiter (int): the maximum number of iterations
+        maxerr (float): the maximum accepted error, if reached, the iteration stops
+        
+    Returns:
+        the solution given by the gausseilde_Xd function called (where X is the dimension of rho) 
+    '''
+    
+    #Checks the dimension of rho, and calls a function to calculate it accordingly to its dimension
     if rho.ndim == 1:
+        
+        #rho's dimension is 1
         return gaussseidel_1d(rho, *h, epsilon, maxiter, maxerr)
     elif rho.ndim == 2:
+        
+        #rho's dimension is 2
         return gaussseidel_2d(rho, *h, epsilon, maxiter, maxerr)
     elif rho.ndim == 3:
+        
+        #rho's dimension is 3
         return gaussseidel_3d(rho, *h, epsilon, maxiter, maxerr)
+    
+    #a rho with a non-accettable dimension was passed
     else:
         raise ValueError(
             'gaussseidel expects rho with 1, 2 or 3 dimensions.')
